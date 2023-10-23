@@ -87,12 +87,19 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+console.log("Financial Analysis")
+console.log("----------------------")
+
 //total number of months included in the dataset//
 console.log("Total months: " + finances.length)
 
-
 //net total amount of Profit/Losses over the entire period//
+var total = 0;
+for(var i = 0; i < finances.length; i++) {
+  total = total + finances[i][1];
+}
 
+console.log("Total : $" + total );
 
 //average of the changes in Profit/Losses over the entire period. --> need to track what the total change in profits is from month to month and then find the average.  ------ (Total/(Number of months - 1))//
 
