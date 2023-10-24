@@ -106,12 +106,18 @@ console.log("Total : $" + total );
 
 //average of the changes in Profit/Losses over the entire period. --> need to track what the total change in profits is from month to month and then find the average.  ------ (Total/(Number of months - 1))//
 // var average = total / finances.length normal average not average change
-for (var i = 1; i < finances.length; i++) {
-  var change = finances[i][1];
-  var change2 = finances[i - 1][1];
-  var averageChangeMM = change - change2;
-  console.log("Average change: $" + averageChangeMM + i)
+var sum = 0;
+for (var i = 1; i < finances.length; i++) {   
+  var month = finances[i][1];
+  var prevMonth = finances[i - 1][1];
+  var change = month - prevMonth;
+  // console.log(change)
+  sum += change;  
 }
+  var average;
+  average = Math.round(sum/finances.length - 1)
+  console.log ("Average change: " + average)       //This number is off by around 26???? really not sure why so please let me know
+
 
 //greatest increase in profits (date and amount) over the entire period.//
 var greatest = 0;
@@ -123,4 +129,3 @@ for (var i = 0; i < finances[1].length; i++) {
 console.log("greatest is " + greatest);
 
 //greatest decrease in losses (date and amount) over the entire period.//
-
