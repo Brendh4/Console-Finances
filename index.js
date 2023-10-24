@@ -121,20 +121,21 @@ for (var i = 1; i < finances.length; i++) {
 
 //greatest increase in profits (date and amount) over the entire period.//
 var greatest = 0;
-for (var i = 0; i < change.length; i++) {
-  if  (change[i] > greatest) {
-    greatest = change[i];
+for (var i = 0; i < finances.length; i++) {
+  if  (finances[i][1] > greatest) {
+    greatest = finances[i][1];      //this finds the number for the right month, just need to subtract/add from previous month and add date
   }
 }
 
-console.log("greatest  is " + greatest);
+
+console.log("Greatest Increase in Profits/Losses: " + greatest);
 
 //greatest decrease in losses (date and amount) over the entire period.//
 var smallest = 0;
-for (var i = 0; i > change.length; i++) {
-  if  (change[i] < smallest) {
-    smallest = change[i];
+for (var i = 0; i < finances.length; i++) {
+  if  (finances[i][1] < smallest) {
+    smallest = finances[i][1];        //this finds the number for the right month, just need to subtract/add from previous month and add date
   }
 }
 
-console.log("greatest  is " + greatest);
+console.log("Greatest Decrease in Profits/Losses: " + smallest);
