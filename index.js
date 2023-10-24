@@ -116,16 +116,25 @@ for (var i = 1; i < finances.length; i++) {
 }
   var average;
   average = Math.round(sum/finances.length - 1)
-  console.log ("Average change: " + average)       //This number is off by around 26???? really not sure why so please let me know
+  console.log ("Average change: " + average)       //This number is off by around 26???? really not sure why so please let me
 
 
 //greatest increase in profits (date and amount) over the entire period.//
 var greatest = 0;
-for (var i = 0; i < finances[1].length; i++) {
-  if  (finances[i][1] > greatest) {
-    greatest = finances[i][1];
+for (var i = 0; i < change.length; i++) {
+  if  (change[i] > greatest) {
+    greatest = change[i];
   }
 }
-console.log("greatest is " + greatest);
+
+console.log("greatest  is " + greatest);
 
 //greatest decrease in losses (date and amount) over the entire period.//
+var smallest = 0;
+for (var i = 0; i > change.length; i++) {
+  if  (change[i] < smallest) {
+    smallest = change[i];
+  }
+}
+
+console.log("greatest  is " + greatest);
