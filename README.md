@@ -6,6 +6,8 @@ This project aims to create a console that calculates financial functions from a
 
 ## Usage
 
+Link to deployed application: https://brendh4.github.io/Console-Finances/
+
 To use, you may add or edit data to the data set where it is appropriate in terms of date. To view the results, open the index.html page in Chrome browser, click inspect, and click console.
 
 ## Credits

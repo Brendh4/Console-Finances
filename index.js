@@ -111,31 +111,35 @@ for (var i = 1; i < finances.length; i++) {
   var month = finances[i][1];
   var prevMonth = finances[i - 1][1];
   var change = month - prevMonth;
-  // console.log(change)
   sum += change;  
 }
-  var average;
-  average = Math.round(sum/finances.length - 1)
-  console.log ("Average change: " + average)       //This number is off by around 26???? really not sure why so please let me
+  var average = sum / (finances.length - 1);
+  var decimal = Math.round(average * 100) / 100;
+  console.log ("Average change: " + decimal)
 
 
 //greatest increase in profits (date and amount) over the entire period.//
 var greatest = 0;
+var greatestMonth = "";
+
 for (var i = 0; i < finances.length; i++) {
   if  (finances[i][1] > greatest) {
-    greatest = finances[i][1];      //this finds the number for the right month, just need to subtract/add from previous month and add date
+    greatest = finances[i][1];  
+    greatestMonth = finances[i][0];
+   }
+   var prevMonth = finances[i - 1];
+   var change = greatest - prevMonth;
   }
-}
+console.log("Greatest Increase in Profits/Losses: " + greatestMonth + "($" + change + " ");
 
-
-console.log("Greatest Increase in Profits/Losses: " + greatest);
 
 //greatest decrease in losses (date and amount) over the entire period.//
 var smallest = 0;
 for (var i = 0; i < finances.length; i++) {
   if  (finances[i][1] < smallest) {
-    smallest = finances[i][1];        //this finds the number for the right month, just need to subtract/add from previous month and add date
+    smallest = finances[i][1]; 
+    var month2 = finances[i][0]
+    
   }
 }
-
-console.log("Greatest Decrease in Profits/Losses: " + smallest);
+console.log("Greatest Decrease in Profits/Losses: " + month2 + " " + smallest)
