@@ -98,8 +98,7 @@ console.log("Total months: " + finances.length)
 //net total amount of Profit/Losses over the entire period//
 var total = 0;
 for(var i = 0; i < finances.length; i++) {
-  total = total + finances[i][1];    // [1] here refers to the second part of the 2d arrays (array within array), as such only counting the numbers. 0 would refer to the dates. Need this second declaration of variable to accumulate from, keep adding each one one by one in the for loop until reach the end, eg hits 86, thus adding them all together //
-  // short hand for this: total += finances [i][1]//
+  total = total + finances[i][1];    // [1] here refers to the second part of the 2d arrays (array within array), as such only counting the numbers. 0 would refer to the dates. Need this second declaration of variable to accumulate from, keep adding each one one by one in the for loop until reach the end, eg hits 86, thus adding them all together. short hand for this: total += finances [i][1]//
 }
 console.log("Total : $" + total );
 
@@ -107,7 +106,7 @@ console.log("Total : $" + total );
 //average of the changes in Profit/Losses over the entire period. --> need to track what the total change in profits is from month to month and then find the average.  ------ (Total/(Number of months - 1))//
 // var average = total / finances.length normal average not average change
 var sum = 0;
-for (var i = 1; i < finances.length; i++) {   
+for(var i = 1; i < finances.length; i++) {   
   var month = finances[i][1];
   var prevMonth = finances[i - 1][1];
   var change = month - prevMonth;
@@ -118,28 +117,33 @@ for (var i = 1; i < finances.length; i++) {
   console.log ("Average change: " + decimal)
 
 
-//greatest increase in profits (date and amount) over the entire period.//
+//greatest increase in profits (date and amount) over the entire period.// --> need to track what the change in profits is from month to prev month and then find the biggest change 
 var greatest = 0;
 var greatestMonth = "";
 
-for (var i = 0; i < finances.length; i++) {
-  if  (finances[i][1] > greatest) {
-    greatest = finances[i][1];  
+for(var i = 1; i < finances.length; i++) {
+  var month = finances[i][1];
+  var prevMonth = finances[i - 1][1]
+  change = month - prevMonth;
+   if(change > greatest) {
+    greatest = change;
     greatestMonth = finances[i][0];
-   }
-   var prevMonth = finances[i - 1];
-   var change = greatest - prevMonth;
-  }
-console.log("Greatest Increase in Profits/Losses: " + greatestMonth + "($" + change + " ");
+} }
+
+console.log("Greatest Increase in Profits/Losses: " + greatestMonth + " ($" + greatest + ")");
 
 
 //greatest decrease in losses (date and amount) over the entire period.//
 var smallest = 0;
-for (var i = 0; i < finances.length; i++) {
-  if  (finances[i][1] < smallest) {
-    smallest = finances[i][1]; 
-    var month2 = finances[i][0]
-    
-  }
-}
-console.log("Greatest Decrease in Profits/Losses: " + month2 + " " + smallest)
+var smallestMonth = "";
+
+for(var i = 1; i < finances.length; i++) {
+  var month = finances[i][1];
+  var prevMonth = finances[i - 1][1]
+  change = month - prevMonth;
+   if(change < smallest) {
+    smallest = change;
+    smallestMonth = finances[i][0];
+} }
+
+console.log("Greatest Increase in Profits/Losses: " + smallestMonth + " ($" + smallest + ")");
