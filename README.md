@@ -10,9 +10,14 @@ Link to deployed application: https://brendh4.github.io/Console-Finances/
 
 To use, you may add or edit data to the data set where it is appropriate in terms of date. To view the results, open the index.html page in Chrome browser, click inspect, and click console.
 
+![Deployed webpage screenshot](04-chal.PNG)
+
+
 ## Credits
 
 Starter code and data provided by EdX Front End Web Development Bootcamp materials from GitLab.
+
+README template used: [https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide]
 
 ## License
 
